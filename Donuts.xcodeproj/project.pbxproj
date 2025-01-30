@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		92466DFB875A271F1BE94FB0 /* Pods_Donuts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8900849C6A9C5473E40981B4 /* Pods_Donuts.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		30A01DA2C6942934D2D5BE45 /* Pods-Donuts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donuts.release.xcconfig"; path = "Target Support Files/Pods-Donuts/Pods-Donuts.release.xcconfig"; sourceTree = "<group>"; };
+		8900849C6A9C5473E40981B4 /* Pods_Donuts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Donuts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9239E5A02D4AD03A0020444D /* Donuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9D34AF55C88126D228CF114 /* Pods-Donuts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donuts.debug.xcconfig"; path = "Target Support Files/Pods-Donuts/Pods-Donuts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92466DFB875A271F1BE94FB0 /* Pods_Donuts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DCD4A64A37A71BE6320247A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9D34AF55C88126D228CF114 /* Pods-Donuts.debug.xcconfig */,
+				30A01DA2C6942934D2D5BE45 /* Pods-Donuts.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9239E5972D4AD03A0020444D = {
 			isa = PBXGroup;
 			children = (
 				9239E5A22D4AD03A0020444D /* Donuts */,
 				9239E5A12D4AD03A0020444D /* Products */,
+				4DCD4A64A37A71BE6320247A /* Pods */,
+				B471C1DFE9563743E6C25BEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +77,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B471C1DFE9563743E6C25BEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8900849C6A9C5473E40981B4 /* Pods_Donuts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9239E5B32D4AD03B0020444D /* Build configuration list for PBXNativeTarget "Donuts" */;
 			buildPhases = (
+				AFC62AD389239FA8513DEC8E /* [CP] Check Pods Manifest.lock */,
 				9239E59C2D4AD03A0020444D /* Sources */,
 				9239E59D2D4AD03A0020444D /* Frameworks */,
 				9239E59E2D4AD03A0020444D /* Resources */,
+				09CA24A3228A58EC6235CB66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				9239E5A22D4AD03A0020444D /* Donuts */,
 			);
 			name = Donuts;
-			packageProductDependencies = (
-			);
 			productName = Donuts;
 			productReference = 9239E5A02D4AD03A0020444D /* Donuts.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09CA24A3228A58EC6235CB66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Donuts/Pods-Donuts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Donuts/Pods-Donuts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Donuts/Pods-Donuts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFC62AD389239FA8513DEC8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Donuts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9239E59C2D4AD03A0020444D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +209,7 @@
 /* Begin XCBuildConfiguration section */
 		9239E5B42D4AD03B0020444D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D34AF55C88126D228CF114 /* Pods-Donuts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -166,6 +236,7 @@
 		};
 		9239E5B52D4AD03B0020444D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30A01DA2C6942934D2D5BE45 /* Pods-Donuts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -227,7 +298,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -290,7 +361,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
