@@ -19,5 +19,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>ApiUrl</key>
+	<string>$(API_URL)</string>
 </dict>
 </plist>
