@@ -43,6 +43,7 @@ class MainScreenViewController: UIViewController {
     }
     
     @objc func logoTapped() {
+        guard let timer = timer else { return }
         timer.invalidate()
         print("Vai pra proxima tela")
     }
