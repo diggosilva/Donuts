@@ -19,13 +19,16 @@ struct Product: Codable {
     let imageURL: String
     let price: Double
     let protein, calories, carb: Int
-    let rating: Double
-    let available: Bool
 }
 
-enum Category: String, Codable {
-    case coldDrinks = "cold_drinks"
-    case donuts = "donuts"
-    case hotDrinks = "hot_drinks"
-    case sandwiches = "sandwiches"
+struct Category: Codable {
+    let name: Name
+    let imageURL: String
+}
+
+enum Name: String, Codable {
+    case coldDrinks = "Cold Drinks"
+    case donuts = "Donuts"
+    case hotDrinks = "Hot Drinks"
+    case sandwiches = "Sandwiches"
 }
