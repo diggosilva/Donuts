@@ -10,7 +10,11 @@ import SDWebImage
 
 class MainScreenViewController: UIViewController {
     
+    // MARK: - Properties
+    
     let mainScreenView = MainScreenView()
+    
+    // MARK: - Lifecycle Methods
     
     override func loadView() {
         super.loadView()
@@ -23,12 +27,17 @@ class MainScreenViewController: UIViewController {
         setDelegatesAndDataSources()
     }
     
+    // MARK: - Setup Methods
+    
     private func setDelegatesAndDataSources() {
         mainScreenView.delegate = self
     }
 }
 
+// MARK: - MainScreenViewDelegate Methods
+
 extension MainScreenViewController: MainScreenViewDelegate {
+    
     func logoTapped() {
         mainScreenView.timer?.invalidate()
         let feedVC = FeedViewController()

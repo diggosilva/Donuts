@@ -28,7 +28,7 @@ class Service: ServiceProtocol {
                         let donut = DonutModel(
                             id: donutModel.id,
                             name: donutModel.name,
-                            category: donutModel.category,
+                            category: DonutCategory(name: donutModel.category.name.rawValue, image: donutModel.category.imageURL),
                             donutDescription: donutModel.description,
                             imageURL: donutModel.imageURL,
                             price: donutModel.price,

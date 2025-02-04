@@ -10,13 +10,13 @@ import Foundation
 class DonutModel: Codable, CustomStringConvertible {
     let id: Int
     let name: String
-    let category: Category
+    let category: DonutCategory
     let donutDescription: String
     let imageURL: String
     let price: Double
     let protein, calories, carb: Int
     
-    init(id: Int, name: String, category: Category, donutDescription: String, imageURL: String, price: Double, protein: Int, calories: Int, carb: Int) {
+    init(id: Int, name: String, category: DonutCategory, donutDescription: String, imageURL: String, price: Double, protein: Int, calories: Int, carb: Int) {
         self.id = id
         self.name = name
         self.category = category
@@ -29,6 +29,6 @@ class DonutModel: Codable, CustomStringConvertible {
     }
     
     var description: String {
-        return "DonutModel(id: \(id), name: \(name), category: \(category), donutDescription: \(donutDescription), imageURL: \(imageURL), price: \(price), protein: \(protein), calories: \(calories), carb: \(carb)"
+        return "DonutModel(id: \(id), name: \(name), categoryName: \(category.name), categoryImage: \(category.image), donutDescription: \(donutDescription), imageURL: \(imageURL), price: \(price), protein: \(protein), calories: \(calories), carb: \(carb)"
     }
 }
