@@ -1,5 +1,15 @@
+//
+//  DonutCell.swift
+//  Donuts
+//
+//  Created by Diggo Silva on 31/01/25.
+//
+
+import UIKit
+
 class DonutCell: UICollectionViewCell {
-    static let identifier = "DonutCell"
+    
+    // MARK: - UI Elements
     
     lazy var bgPrice: UIView = {
         let bg = UIView()
@@ -15,6 +25,7 @@ class DonutCell: UICollectionViewCell {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "$4.99"
         lbl.textAlignment = .center
+        lbl.font = .systemFont(ofSize: 14, weight: .bold)
         lbl.adjustsFontSizeToFitWidth = true
         lbl.minimumScaleFactor = 0.8
         return lbl
@@ -33,6 +44,8 @@ class DonutCell: UICollectionViewCell {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Nuts Caramel"
         lbl.font = .systemFont(ofSize: 12, weight: .semibold)
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.minimumScaleFactor = 0.8
         lbl.textAlignment = .center
         return lbl
     }()
@@ -51,6 +64,7 @@ class DonutCell: UICollectionViewCell {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(systemName: "heart")?.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
+        btn.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -62,6 +76,13 @@ class DonutCell: UICollectionViewCell {
         return btn
     }()
     
+    // MARK: - Static Properties
+    
+    static let identifier: String = "DonutCell"
+    var isLiked: Bool = false
+    
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupView()
@@ -69,13 +90,43 @@ class DonutCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    // MARK: - Actions
+    
+    @objc func likeTapped() {
+        isLiked.toggle()
+        if isLiked {
+            animateLike(duration: 0.1, x: 1.2, y: 1.2)
+            likeButton.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal), for: .normal)
+        } else {
+            animateLike(duration: 0.1, x: 0.8, y: 0.8)
+            likeButton.setImage(UIImage(systemName: "heart")?.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
+        }
+    }
+    
+    func animateLike(duration: CGFloat, x: CGFloat, y: CGFloat) {
+        UIView.animate(withDuration: duration, animations: {
+            self.likeButton.transform = self.likeButton.transform.scaledBy(x: x, y: y)
+        }) { _ in
+            UIView.animate(withDuration: duration, animations: {
+                self.likeButton.transform = CGAffineTransform.identity
+            })
+        }
+    }
+    
+    // MARK: - Configuration
+    
     func configure(model: DonutModel) {
+        guard let url = URL(string: model.imageURL) else { return }
         labelPrice.text = "$\(model.price)"
-        
+        image.sd_setImage(with: url)
         nameLabel.text = model.name.capitalized
-        self.backgroundColor = .systemGreen.withAlphaComponent(0.1)
+        self.backgroundColor = DSColor.colorsForTypes(type: model.id).withAlphaComponent(0.1)
+        bgPrice.backgroundColor = DSColor.colorsForTypes(type: model.id).withAlphaComponent(0.2)
+        labelPrice.textColor = DSColor.colorsForTypes(type: model.id)
         self.layer.cornerRadius = 20
     }
+        
+    // MARK: - View Setup
     
     private func setupView() {
         setHierarchy()
@@ -100,7 +151,7 @@ class DonutCell: UICollectionViewCell {
             
             image.topAnchor.constraint(equalTo: bgPrice.bottomAnchor, constant: 10),
             image.centerXAnchor.constraint(equalTo: centerXAnchor),
-            image.widthAnchor.constraint(equalToConstant: 60),
+            image.widthAnchor.constraint(equalToConstant: 80),
             image.heightAnchor.constraint(equalTo: image.widthAnchor),
             
             nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
