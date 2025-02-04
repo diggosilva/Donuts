@@ -15,6 +15,7 @@ class DonutModel: Codable, CustomStringConvertible {
     let imageURL: String
     let price: Double
     let protein, calories, carb: Int
+    var isLiked: Bool = false
     
     init(id: Int, name: String, category: DonutCategory, donutDescription: String, imageURL: String, price: Double, protein: Int, calories: Int, carb: Int) {
         self.id = id

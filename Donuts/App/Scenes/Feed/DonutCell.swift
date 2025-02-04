@@ -23,7 +23,6 @@ class DonutCell: UICollectionViewCell {
     lazy var labelPrice: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "$4.99"
         lbl.textAlignment = .center
         lbl.font = .systemFont(ofSize: 14, weight: .bold)
         lbl.adjustsFontSizeToFitWidth = true
@@ -34,7 +33,6 @@ class DonutCell: UICollectionViewCell {
     lazy var image: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.image = UIImage(systemName: "dog.fill")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
         img.contentMode = .scaleAspectFit
         return img
     }()
@@ -42,7 +40,6 @@ class DonutCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Nuts Caramel"
         lbl.font = .systemFont(ofSize: 12, weight: .semibold)
         lbl.adjustsFontSizeToFitWidth = true
         lbl.minimumScaleFactor = 0.8
@@ -73,13 +70,14 @@ class DonutCell: UICollectionViewCell {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Add", for: .normal)
         btn.setTitleColor(.label, for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         return btn
     }()
     
     // MARK: - Static Properties
     
     static let identifier: String = "DonutCell"
-    var isLiked: Bool = false
+    var model: DonutModel!
     
     // MARK: - Initializers
     
@@ -93,8 +91,8 @@ class DonutCell: UICollectionViewCell {
     // MARK: - Actions
     
     @objc func likeTapped() {
-        isLiked.toggle()
-        if isLiked {
+        model?.isLiked.toggle()
+        if model?.isLiked == true {
             animateLike(duration: 0.1, x: 1.2, y: 1.2)
             likeButton.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal), for: .normal)
         } else {
@@ -124,8 +122,11 @@ class DonutCell: UICollectionViewCell {
         bgPrice.backgroundColor = DSColor.colorsForTypes(type: model.id).withAlphaComponent(0.2)
         labelPrice.textColor = DSColor.colorsForTypes(type: model.id)
         self.layer.cornerRadius = 20
+        likeButton.setImage(UIImage(systemName: model.isLiked ? "heart.fill" : "heart"), for: .normal)
+        likeButton.tintColor = model.isLiked ? .systemRed : .label
+        self.model = model
     }
-        
+    
     // MARK: - View Setup
     
     private func setupView() {
