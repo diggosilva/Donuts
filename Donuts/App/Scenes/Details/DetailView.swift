@@ -1,3 +1,13 @@
+//
+//  DetailView.swift
+//  Donuts
+//
+//  Created by Diggo Silva on 05/02/25.
+//
+
+import UIKit
+import SDWebImage
+
 class DetailView: UIView {
     
     // MARK: - Views

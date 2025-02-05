@@ -1,3 +1,12 @@
+//
+//  DetailViewController.swift
+//  Donuts
+//
+//  Created by Diggo Silva on 05/02/25.
+//
+
+import UIKit
+
 class DetailViewController: UIViewController {
     
     // MARK: - Initialize DetailView
