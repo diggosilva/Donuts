@@ -108,4 +108,16 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let selectedItem = viewModel.getDonut(at: indexPath)
+        let detailVC = DetailViewController()
+        detailVC.title = selectedItem.name
+        detailVC.detailView.configure(model: selectedItem)
+        
+        let navigationcontroller = UINavigationController(rootViewController: detailVC)
+        present(navigationcontroller, animated: true)
+    }
 }
