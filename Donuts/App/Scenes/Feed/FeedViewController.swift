@@ -112,12 +112,17 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        let selectedItem = viewModel.getDonut(at: indexPath)
-        let detailVC = DetailViewController()
-        detailVC.title = selectedItem.name
-        detailVC.detailView.configure(model: selectedItem)
-        
-        let navigationcontroller = UINavigationController(rootViewController: detailVC)
-        present(navigationcontroller, animated: true)
+        if collectionView == feedView.collectionDonut {
+            let selectedItem = viewModel.getDonut(at: indexPath)
+            let detailVC = DetailViewController()
+            detailVC.title = selectedItem.name
+            detailVC.detailView.configure(model: selectedItem)
+            
+            let navigationcontroller = UINavigationController(rootViewController: detailVC)
+            present(navigationcontroller, animated: true)
+            return
+        } else {
+            print("Clicou na celula \(indexPath.item)")
+        }
     }
 }
