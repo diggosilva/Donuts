@@ -22,7 +22,7 @@ class FeedViewModel {
     var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
     let service: ServiceProtocol = Service()
     
-    // MARK: - Data Methods
+    // MARK: - Categories Data Methods
     
     func numberOfImages() -> Int {
         categoriesImage.count
@@ -31,6 +31,8 @@ class FeedViewModel {
     func getCategories(at indexPath: IndexPath) -> DonutCategory {
         categoriesImage[indexPath.row]
     }
+    
+    // MARK: - Feed Data Methods
     
     func numberOfItemsInSection() -> Int {
         donutsList.count
