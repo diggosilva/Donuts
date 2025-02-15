@@ -92,8 +92,13 @@ class DonutCell: UICollectionViewCell {
     
     @objc func likeTapped() {
         model?.isLiked.toggle()
+        
+        if let model = model {
+            DonutModel.saveLikeState(for: model.id, isLiked: model.isLiked)
+        }
+        
         if model?.isLiked == true {
-            animateLike(duration: 0.1, x: 1.2, y: 1.2)
+            animateLike(duration: 0.1, x: 0.8, y: 0.8)
             likeButton.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal), for: .normal)
         } else {
             animateLike(duration: 0.1, x: 0.8, y: 0.8)

@@ -27,9 +27,20 @@ class DonutModel: Codable, CustomStringConvertible {
         self.protein = protein
         self.calories = calories
         self.carb = carb
+        self.isLiked = DonutModel.loadLikeState(for: id)
     }
     
     var description: String {
         return "DonutModel(id: \(id), name: \(name), categoryName: \(category.name), categoryImage: \(category.image), donutDescription: \(donutDescription), imageURL: \(imageURL), price: \(price), protein: \(protein), calories: \(calories), carb: \(carb)"
+    }
+    
+    // Salvar o estado do like no UserDefaults
+    static func saveLikeState(for id: Int, isLiked: Bool) {
+        UserDefaults.standard.set(isLiked, forKey: "likeState_\(id)")
+    }
+    
+    // Carregar o estado do like do UserDefaults
+    static func loadLikeState(for id: Int) -> Bool {
+        return UserDefaults.standard.bool(forKey: "likeState_\(id)")
     }
 }
