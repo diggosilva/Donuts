@@ -14,9 +14,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: MainScreenViewController())
+        
+        // Verifique se o identificador está presente
+        if isFirstLaunch() {
+            window.rootViewController = UINavigationController(rootViewController: MainScreenViewController())
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: FeedViewController())
+        }
         window.makeKeyAndVisible()
         self.window = window
+    }
+    
+    func isFirstLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        let isFirstLaunch = defaults.bool(forKey: "hasLaunchedBefore")
+        
+        if !isFirstLaunch {
+            // Salvar um identificador único indicando que o app foi instalado
+            defaults.set(true, forKey: "hasLaunchedBefore")
+            defaults.set(UUID().uuidString, forKey: "appInstallUUID")
+            defaults.synchronize()
+            return true // Primeira vez, o app foi instalado
+        }
+        return false // O app já foi executado antes
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
