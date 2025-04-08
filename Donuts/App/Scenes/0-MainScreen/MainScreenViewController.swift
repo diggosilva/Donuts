@@ -40,8 +40,8 @@ extension MainScreenViewController: MainScreenViewDelegate {
     
     func logoTapped() {
         mainScreenView.timer?.invalidate()
-        let feedVC = FeedViewController()
-        navigationController?.pushViewController(feedVC, animated: true)
+        let tabBarController = TabBarController()
+        navigationController?.pushViewController(tabBarController, animated: true)
     }
     
     func startAnimationLogo() {
