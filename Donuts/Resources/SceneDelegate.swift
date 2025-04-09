@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isFirstLaunch() {
             window.rootViewController = UINavigationController(rootViewController: MainScreenViewController())
         } else {
-            window.rootViewController = UINavigationController(rootViewController: FeedViewController())
+            window.rootViewController = TabBarController()
         }
         window.makeKeyAndVisible()
         self.window = window

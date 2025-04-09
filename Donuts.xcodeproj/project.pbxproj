@@ -163,9 +163,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Donuts/Pods-Donuts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Donuts/Pods-Donuts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -211,7 +215,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9D34AF55C88126D228CF114 /* Pods-Donuts.debug.xcconfig */;
 			buildSettings = {
-				API_URL = "https://run.mocky.io/v3/d2fad373-f379-45c0-9ed2-9ca063960887";
+				API_URL = "https://run.mocky.io/v3/318a949c-a70f-4f15-8868-3af1c5145e44";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -239,7 +243,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 30A01DA2C6942934D2D5BE45 /* Pods-Donuts.release.xcconfig */;
 			buildSettings = {
-				API_URL = "https://run.mocky.io/v3/d2fad373-f379-45c0-9ed2-9ca063960887";
+				API_URL = "https://run.mocky.io/v3/318a949c-a70f-4f15-8868-3af1c5145e44";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
