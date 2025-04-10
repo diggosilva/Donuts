@@ -1,3 +1,12 @@
+//
+//  FavoritesView.swift
+//  Donuts
+//
+//  Created by Diggo Silva on 09/04/25.
+//
+
+import UIKit
+
 class FavoritesView: UIView {
     
     lazy var tableView: UITableView = {
