@@ -27,7 +27,7 @@ class TabBarController: UITabBarController {
     }
     
     private func createFavoritesNavController() -> UINavigationController {
-        let favoritesNavController = UINavigationController(rootViewController: FeedViewController()) // CRIAR FAVORITES
+        let favoritesNavController = UINavigationController(rootViewController: FavoritesViewController())
         favoritesNavController.tabBarItem = UITabBarItem(title: "Favoritos", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         return favoritesNavController
     }
