@@ -61,6 +61,8 @@ class FeedView: UIView {
         return lbl
     }()
     
+    var onTapAddFavorite: ((DonutModel) -> Void)?
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
