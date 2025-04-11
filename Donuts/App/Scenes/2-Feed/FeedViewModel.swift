@@ -21,6 +21,7 @@ class FeedViewModel {
     var donutsList: [DonutModel] = []
     var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
     let service: ServiceProtocol = Service()
+    let repository: RepositoryProtocol = Repository()
     
     // MARK: - Categories Data Methods
     
@@ -55,6 +56,17 @@ class FeedViewModel {
         } onError: { [weak self] error in
             guard let self = self else { return }
             self.state.value = .error
+        }
+    }
+    
+    func addToFavorites(_ donut: DonutModel) {
+        repository.saveDonut(donut) { result in
+            switch result {
+            case .success(let message):
+                print("✅ \(message)")
+            case .failure(let error):
+                print("❌ Erro ao salvar: \(error.localizedDescription)")
+            }
         }
     }
 }
