@@ -71,6 +71,7 @@ class DonutCell: UICollectionViewCell {
         btn.setTitle("Add", for: .normal)
         btn.setTitleColor(.label, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
+        btn.addTarget(self, action: #selector(addFavoriteTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -78,6 +79,8 @@ class DonutCell: UICollectionViewCell {
     
     static let identifier: String = "DonutCell"
     var model: DonutModel!
+    
+    var onAddTapped: (() -> Void)?
     
     // MARK: - Initializers
     
@@ -89,6 +92,10 @@ class DonutCell: UICollectionViewCell {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     // MARK: - Actions
+    
+    @objc func addFavoriteTapped() {
+        onAddTapped?()
+    }
     
     @objc func likeTapped() {
         model?.isLiked.toggle()
