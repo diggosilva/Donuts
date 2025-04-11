@@ -25,7 +25,14 @@ class FeedViewController: UIViewController {
         setNavBar()
         setDelegatesAndDataSources()
         handleStates()
+        bindViewActionsToViewModel()
         viewModel.loadDonuts()
+    }
+    
+    private func bindViewActionsToViewModel() {
+        feedView.onTapAddFavorite = { [weak self] donut in
+            self?.viewModel.addToFavorites(donut)
+        }
     }
     
     // MARK: - State Handling
@@ -103,7 +110,12 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else if collectionView == feedView.collectionDonut {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DonutCell.identifier, for: indexPath) as? DonutCell else { return UICollectionViewCell() }
-            cell.configure(model: viewModel.getDonut(at: indexPath))
+            let model = viewModel.getDonut(at: indexPath)
+            cell.configure(model: model)
+            
+            cell.onAddTapped = { [weak self] in
+                self?.feedView.onTapAddFavorite?(model)
+            }
             return cell
         }
         return UICollectionViewCell()
