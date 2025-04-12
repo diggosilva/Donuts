@@ -10,9 +10,9 @@ import UIKit
 class FavoritesView: UIView {
     
     lazy var tableView: UITableView = {
-        let tv = UITableView()
+        let tv = UITableView(frame: .zero, style: .insetGrouped)
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tv.register(FavoritesCell.self, forCellReuseIdentifier: FavoritesCell.identifier)
         return tv
     }()
     
