@@ -215,7 +215,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9D34AF55C88126D228CF114 /* Pods-Donuts.debug.xcconfig */;
 			buildSettings = {
-				API_URL = "https://run.mocky.io/v3/318a949c-a70f-4f15-8868-3af1c5145e44";
+				API_URL = "https://run.mocky.io/v3/2efbb66d-f194-4442-8c1c-7231f3d90c56";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -243,7 +243,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 30A01DA2C6942934D2D5BE45 /* Pods-Donuts.release.xcconfig */;
 			buildSettings = {
-				API_URL = "https://run.mocky.io/v3/318a949c-a70f-4f15-8868-3af1c5145e44";
+				API_URL = "https://run.mocky.io/v3/2efbb66d-f194-4442-8c1c-7231f3d90c56";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
